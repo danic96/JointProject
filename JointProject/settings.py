@@ -25,7 +25,7 @@ SECRET_KEY = 'kt_f6i#7$il#d+zse)5h=b310(u=$_0d!oo6w$jxpry-5_e0w9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

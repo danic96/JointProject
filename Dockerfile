@@ -10,9 +10,9 @@ COPY requeriments.txt /code/
 
 RUN apt-get update
 
-RUN apt-get install -y python3.7-dev python3-psycopg2 libpq-dev
+RUN apt-get install -y python3-psycopg2 libpq-dev
 
-RUN apt-get clean
+# RUN apt-get clean
 
 RUN pip install -r requeriments.txt
 

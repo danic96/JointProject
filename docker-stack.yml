@@ -4,8 +4,12 @@ services:
     image: postgres
     deploy:
         replicas: 1
+    networks:
+      - webnet
   web:
     image: danic96/jointproject
+    deploy:
+        replicas: 2
     command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code

@@ -13,3 +13,15 @@ services:
       MYSQL_USER: user 
       MYSQL_PASSWORD: password 
       MYSQL_DATABASE: jointproject
+      
+  web:
+    image: danic96/jointproject:arm-test
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      
+    

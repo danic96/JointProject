@@ -76,11 +76,12 @@ WSGI_APPLICATION = 'JointProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432,
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'jointproject',
+        'USER': 'user',
+        'PASSWORD': 'password',
+        'HOST': '172.21.0.2',
+        'PORT': '',
     }
 }
 

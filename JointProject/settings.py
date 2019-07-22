@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'jointproject',
         'USER': 'user',
         'PASSWORD': 'password',
-        'HOST': '172.21.0.2',
+        'HOST': 'db',
         'PORT': '',
     }
 }

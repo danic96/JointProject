@@ -15,7 +15,7 @@ services:
       MYSQL_DATABASE: jointproject
       
   web:
-    image: danic96/jointproject:arm-test
+    image: jointproject2:latest
     command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code

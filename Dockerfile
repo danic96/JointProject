@@ -14,12 +14,12 @@ COPY requeriments.txt /code/
 
 RUN apt-get update
 
-RUN apt-get install -y gcc g++ python3-psycopg2 libpq-dev
+RUN apt-get install -y gcc g++ libmariadbclient-dev default-libmysqlclient-dev
 
 RUN pip install mysqlclient
 
 RUN pip install -r requeriments.txt
 
-RUN apt-get clean && apt-get purge -y gcc g++ && apt-get autoremove -y
+# RUN apt-get clean && apt-get purge -y gcc g++ && apt-get autoremove -y
 
 COPY . /code/

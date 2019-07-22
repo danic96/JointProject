@@ -2,14 +2,12 @@ version: '3'
 services:
   db:
     image: postgres
-    deploy:
-        replicas: 1
     networks:
       - webnet
   web:
     image: danic96/jointproject
     deploy:
-        replicas: 2
+        replicas: 3
     command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
@@ -19,5 +17,16 @@ services:
       - webnet
     depends_on:
       - db
+  visualizer:
+    image: dockersamples/visualizer:stable
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - webnet
 networks:
   webnet:

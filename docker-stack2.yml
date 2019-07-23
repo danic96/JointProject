@@ -14,9 +14,9 @@ services:
       MYSQL_DATABASE: jointproject
       
   web:
-    image: danic96/jointproject:arm
+    image: danic96/jointproject:arm2
     deploy:
-      replicas: 8    
+      replicas: 1    
 
     command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py loaddata db.json && python manage.py runserver 0.0.0.0:8000"
     ports:

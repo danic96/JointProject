@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from django.urls import path
+from django.urls import path, include
 
 from .views import *
 
@@ -7,6 +7,9 @@ from .views import *
 app_name = "storageandgo"
 
 urlpatterns = [
+
+    # LOGIN
+    path('accounts/', include('django.contrib.auth.urls')),
 
     path('', redirect_to_home),
 

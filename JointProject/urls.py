@@ -20,6 +20,6 @@ urlpatterns = [
     # path('', RedirectView.as_view(pattern_name='storageandgo:task_list'), name='home'),
     path('admin/', admin.site.urls),
     path('storageandgo/', include('StorageAndGo.urls', namespace='storageandgo')),
-    path('accounts/', include('django.contrib.auth.urls')),
+    # path('accounts/', include('django.contrib.auth.urls')),
     # path('', include('StorageAndGo.urls')),
 ]

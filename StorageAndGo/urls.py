@@ -9,7 +9,7 @@ app_name = "storageandgo"
 urlpatterns = [
 
     # LOGIN
-    path('accounts/', include('django.contrib.auth.urls')),
+    # path('accounts/', include('django.contrib.auth.urls')),
 
     path('', redirect_to_home),
 

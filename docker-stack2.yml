@@ -14,7 +14,7 @@ services:
       MYSQL_DATABASE: jointproject
       
   web:
-    image: danic96/jointproject:arm2
+    image: danic96/jointproject2
     deploy:
       replicas: 1    
 

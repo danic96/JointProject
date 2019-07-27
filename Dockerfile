@@ -1,10 +1,11 @@
-FROM arm32v7/python:3.7.4-slim
+FROM python:3.7.4-slim
+# FROM arm32v7/python:3.7.4-slim
 # FROM arm32v7/debian:stretch-slim 
 
 
 ENV PYTHONUNBUFFERED 1
 
-COPY qemu-arm-static /usr/bin/qemu-arm-static
+# COPY qemu-arm-static /usr/bin/qemu-arm-static
 
 RUN mkdir /code
 

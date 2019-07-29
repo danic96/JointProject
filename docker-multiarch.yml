@@ -1,0 +1,41 @@
+# Use root/example as user/password credentials
+
+version: '3.6'
+
+services:
+  db:
+    image: danic96/mariadb
+    ports:
+      - "3306:3306"
+    environment: 
+      MYSQL_ROOT_PASSWORD: password1234 
+      MYSQL_USER: user 
+      MYSQL_PASSWORD: password 
+      MYSQL_DATABASE: jointproject
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+      
+  web:
+    image: danic96/jointproject2
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role==worker]    
+
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py loaddata db.json && python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - visualizer
+
+  visualizer:
+    image: danic96/visualizer
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints: [node.role == manager]

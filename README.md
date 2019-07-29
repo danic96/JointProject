@@ -32,3 +32,11 @@ docker-compose up -d
 docker-compose up -d --build
 
 docker-compose down
+
+## DOCKER MULTI-ARCH
+
+docker buildx create --name JointProject
+
+docker buildx use JointProject
+
+docker buildx build --platform linux/amd64,linux/arm/v7 -t jointproject2 .

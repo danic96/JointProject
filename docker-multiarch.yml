@@ -4,7 +4,7 @@ version: '3.6'
 
 services:
   db:
-    image: danic96/mariadb
+    image: nerfthis/mariadb
     ports:
       - "3306:3306"
     environment: 
@@ -17,11 +17,11 @@ services:
         constraints: [node.role == manager]
       
   web:
-    image: danic96/jointproject2
+    image: nerfthis/jointproject
     deploy:
       replicas: 1
-      placement:
-        constraints: [node.role==worker]    
+#      placement:
+#        constraints: [node.role==worker]    
 
     command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py loaddata db.json && python manage.py runserver 0.0.0.0:8000"
     ports:
@@ -31,11 +31,19 @@ services:
       - visualizer
 
   visualizer:
-    image: danic96/visualizer
+    image: nerfthis/visualizer
     ports:
       - "8080:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
+  memcached:
+    image: nerfthis/memcached
+    ports:
+      - "11211:11211"
     deploy:
       placement:
         constraints: [node.role == manager]

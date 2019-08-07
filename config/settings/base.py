@@ -19,13 +19,15 @@ ROOT_DIR = environ.Path(__file__) - 3
 env = environ.Env()
 
 # This section added from an update to standards in CookieCutter Django to ensure no errors are encountered at runserver/migrations
-READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=False)
+# READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=False)
 
-if READ_DOT_ENV_FILE:
-    env_file = str(ROOT_DIR.path('.env'))
-    print('Loading : {}'.format(env_file))
-    env.read_env(env_file)
-    print('The .env file has been loaded. See base.py for more information')
+# if READ_DOT_ENV_FILE:
+#     env_file = str(ROOT_DIR.path('.env'))
+#     print('Loading : {}'.format(env_file))
+#     env.read_env(env_file)
+#     print('The .env file has been loaded. See base.py for more information')
+
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/

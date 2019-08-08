@@ -1,5 +1,9 @@
 # JointProject
 
+## REQUERIMENTS FOR PRODUCTION
+    apt install python3-dev libmariadbclient-dev g++ libmysqlclient-dev
+    apt install default-libmysqlclient-dev
+
 ## Default database
 It's name is db.sqlite3-copia.
 

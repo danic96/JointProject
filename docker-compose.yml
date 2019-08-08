@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+
+  db:
+
+    image: nerfthis/mariadb
+    ports:
+
+      - "3306:3306"
+
+    environment: 
+
+      MYSQL_ROOT_PASSWORD: password1234 
+
+      MYSQL_USER: user 
+
+      MYSQL_PASSWORD: password 
+
+      MYSQL_DATABASE: jointproject

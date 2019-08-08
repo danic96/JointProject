@@ -3,6 +3,10 @@
 ## REQUERIMENTS FOR PRODUCTION
     apt install python3-dev libmariadbclient-dev g++ libmysqlclient-dev
     apt install default-libmysqlclient-dev
+    
+## RUNNING
+     python manage.py runserver 0.0.0.0:8000 --settings=config.settings.local
+     python manage.py runserver 0.0.0.0:8000 --settings=config.settings.production
 
 ## Default database
 It's name is db.sqlite3-copia.

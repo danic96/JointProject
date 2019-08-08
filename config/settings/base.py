@@ -141,5 +141,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+# STATICFILES_DIRS = (
+#   os.path.join(ROOT_DIR, 'static/'),
+#)
+
 LOGIN_REDIRECT_URL = '/storageandgo/'
 LOGOUT_REDIRECT_URL = '/storageandgo/'

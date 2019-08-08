@@ -1,5 +1,5 @@
 #DJANGO
 .*
-venv
+venv*
 db.sqlite3
 *.pyc
